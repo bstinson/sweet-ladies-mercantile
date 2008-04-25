@@ -13,7 +13,7 @@ img{
 #header{
 	width:760px;
 	margin:0 auto;
-	background:url('/images/main_header.gif') no-repeat;
+	background:url('/images/rangers_header.gif') no-repeat;
 	height:100px;
 }
 
@@ -74,4 +74,5 @@ img{
 
 #footer h4{
 	text-align:center;
+	color:#FFF;
 }
