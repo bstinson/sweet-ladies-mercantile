@@ -1,0 +1,18 @@
+<table cellspacing="0" id="product_listings">
+	<% for product in @products %>
+	<tr style="background-color:#15A; color:#FFF;">
+		<td><%= link_to product.title, :action => 'edit_product', :id => product.id %></td>
+		<td style="text-align:right;"><%= link_to "edit", :action => 'edit_product', :id => product.id %> | <%= link_to "remove", {:action => 'remove_product', :id => product.id}, :confirm => 'Are you sure you want to remove this product? You will be unable to get it back once it\'s gone.' %></td>
+	</tr>
+	<tr>
+		<td>
+			<%= display_images(product.id)%>
+		</td>
+		<td>
+			<b>Sizes:</b> <%= product.sizes %> <br />
+			<b>Price:</b> <%= number_to_currency(product.price) %><br />
+			<b>Desc:</b> <%= product.description %>
+		</td>
+	</tr>	
+	<% end %>	
+</table>	

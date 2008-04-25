@@ -1,0 +1,18 @@
+<div id="main_image">
+	<%= category_image()%>
+</div>
+	
+	<% for section in @sections %>
+		<h3 id="<%= section.sub_cat %>"><%= section.sub_cat %></h3>
+		<div style="width:500px; padding:5px; vertical-align:top;">
+			<% for product in @products%>
+				<% if product.sub_cat == section.sub_cat %>
+				<div class="products">
+					<h4><%= link_to product.title, :action => "view_product", :id => product.id %></h4>
+					<%= product_image(product.id, product.title)%>
+					<p><b><%= product.code %></b> - <%= number_to_currency(product.price) %></p>
+				</div>
+				<% end %>
+			<% end %>		
+		</div>		
+	<% end %>

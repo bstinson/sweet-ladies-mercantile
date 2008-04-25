@@ -1,0 +1,11 @@
+<% form_for :photo, :html => { :multipart => true } do |form| %>
+	<p>
+		<b>Upload Image</b><br />
+	    <%= form.file_field :image_file, :size => '10' %>
+	</p>
+		<%= form.hidden_field :product_id, :value => @product.id %>
+
+	<p>
+	    <%= submit_tag 'Add' %>
+	</p>
+<% end %>

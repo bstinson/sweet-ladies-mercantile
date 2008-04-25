@@ -1,0 +1,16 @@
+<h4>Images</h4>
+<hr />
+<% if @images.empty? %>
+	<%= link_to_remote "Add Image",
+							:url =>{:action => 'upload_category_image', :id => @category.id },
+							:update => "images_list",
+							:style => "font-size:8.75px;",
+							:complete => visual_effect(:blind_down, 'upload_image', :duration => '0.3')
+							 -%>
+<% else %>
+	<% for image in @images %>
+		<%= link_to(image_tag("/index/thumb/" + image.id.to_s + ".jpg"), "/images/uploaded/" + image.id.to_s + ".jpg", :popup => 'true') %><br />
+		<p><%= link_to "Remove" ,:action => "remove_image", :id => image.id %>
+	<% end %>
+<% end %>	
+	

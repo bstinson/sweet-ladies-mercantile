@@ -1,0 +1,3 @@
+@photo.operate do |image|
+    image.resize '100x100'
+end

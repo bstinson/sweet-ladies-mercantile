@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	
+	<title>Sweet Ladies Mercantile - Civil War, Revolutionary War, Old Rangers, Historical Clothing</title>
+	
+	<meta name="DESCRIPTION" content="Revolutionary War, Civil War and Old Rangers Clothing. 10 years of reenacting experience and an eye for historical accuracy.">
+	<meta name="KEYWORDS" content="Ladies Clothing, Civil War clothing, camp dress, pin apron, Revolutionary War clothing, Zuoave, blouses, ball gowns, hoop skirts, day bonnets, jackets, chemises, constance dress, frock coats, vests, 	trousers, mens' dress shirts, pants, haversacks, military shirts, childrens' clothing, hats, western britches, gambler shirt">
+	
+	<% if !@category.nil? %>
+		<% if @category.id == 1%>
+   			<%= stylesheet_link_tag 'civilwar', :media => "all" %>
+			<% else %>
+			<% if @category.id == 2 %>
+				<%= stylesheet_link_tag 'rangers', :media => "all" %>
+				<% else %>
+				<% if @category.id > 2 %>
+					<%= stylesheet_link_tag 'default', :media => "all" %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% else %>
+		<%= stylesheet_link_tag 'default', :media => "all" %>
+	<% end %>	
+	<%= javascript_include_tag :defaults %>
+
+</head>
+
+<body>
+	<div id="header">
+		<h1 id="heading"><%= link_to "Sweet Ladies Mercantile", :action => 'index' %></h1>
+	</div>
+	
+	<table id="content">
+		<tr style="vertical-align:top;">
+			<td id="sidebar">
+				<ul>
+				<li><%= link_to_unless_current "Home", :action => 'index'%></li>	
+				<% for category in @categories %>
+					<li><%= link_to_unless_current category.name, :action => 'view_category', :id => category.id %></li>
+				<% end %>
+				</ul>
+				<% if (controller.action_name == "view_category") && (@sections.size > 1)%>
+					<div id="sections">
+						<h2>Sections</h2>
+							<% for section in @sections %>
+								<a href="#<%= section.sub_cat %>"><%= section.sub_cat %></a><br />					
+							<% end %>	
+					</div>	
+				<% end %>
+			</td>
+			<td id="main">
+				<%= yield %>
+			</td>
+		</tr>
+	</table>
+	
+	<div id="footer">
+		<h4>Copyright&#169; 2008 by Sweet Ladies Mercantile - All rights reserved.</h4> 
+	</div>	
+</body>
+</html>

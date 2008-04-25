@@ -1,0 +1,18 @@
+<div id="flash">
+	<%= textilize(flash[:notice]) %>
+</div>	
+
+<h3>Add Category</h3>
+
+<div id="product">
+
+<%= error_messages_for :category %>
+
+<% form_for :category do |form| %>
+	<label for="category_name">Name:</label><br />
+	<%= form.text_field :name %><br />
+    
+	<%= submit_tag "Add"%>
+<% end %>	
+
+</div>

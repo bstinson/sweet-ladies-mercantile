@@ -1,0 +1,11 @@
+<div id="flash">
+	<%= textilize(flash[:notice])%>
+</div>
+
+<h3>Products (<%= link_to "add", :action => "add_product" %>)</h3>
+
+<% if Product.count <= 0 %>
+	<p>There are currently no products for your site.</p>
+<% else %>
+	<%= render :partial => 'product_listings'%>
+<% end %>

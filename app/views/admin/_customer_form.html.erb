@@ -1,0 +1,48 @@
+<% form_for :product do |form| %>
+	
+	<%= error_messages_for :product %>
+	
+	<table>
+		<tr>
+			<td><label for="product_code">Product Code*</label></td>
+			<td><%= form.text_field :code %></td>
+		</tr>
+		
+		<tr>
+			<td><label for="product_title">Title*</label></td>
+			<td><%= form.text_field :title %></td>
+		</tr>
+		
+		<tr>
+			<td><label for="product_category_id">Style</label></td>
+			<td><%= form.collection_select(:category_id, Category.find(:all), :id, :name) %></td>
+		</tr>
+
+		<tr>
+			<td><label for="product_sub_cat">Category</label></td>
+			<td><%= form.select(:sub_cat, %w{Gentlemen Ladies Children} ) %></td>
+		</tr>
+		
+		<tr>
+			<td><label for="product_description">Description</label></td>
+			<td><%= form.text_area :description, :cols => 30, :rows => 10 %></td>
+		</tr>
+		
+		<tr>
+			<td><label for="product_sizes">Sizes</label></td>
+			<td><%= form.text_field :sizes %></td>
+		</tr>
+		
+		<tr>
+			<td><label for="product_price">Price*</label></td>
+			<td><%= form.text_field :price %></td>
+		</tr>
+		
+		<tr>
+			<td>&nbsp;</td>
+			<td><%= submit_tag "Submit" %></td>
+		</tr>	
+		
+		
+	</table>		
+<% end %>

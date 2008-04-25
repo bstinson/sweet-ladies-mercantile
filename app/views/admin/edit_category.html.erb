@@ -1,0 +1,17 @@
+<div id="flash">
+	<%= flash[:notice] %>
+</div>
+
+<h3>Edit Category</h3>
+<div id="images_list">
+	<%= render :partial => 'category_image' %>
+</div>
+<div id="product">
+<% form_for :category do |form| %>
+	<label for="category_name">Name:</label><br />
+	<%= form.text_field :name, :value => @category.name %><br />
+    
+	<%= submit_tag "Submit"%> | <%= link_to "delete", {:action => "remove_category", :id => @category }, :confirm => 'Are you sure you want to remove this category? Any products associated with it, will be moved to a different category.'%>
+	
+<% end %>
+</div>

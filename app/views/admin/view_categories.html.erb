@@ -1,0 +1,19 @@
+<div id="flash">
+	<%= textilize(flash[:notice])%>
+</div>
+
+<h3>Category List</h3>
+
+<% if Category.count > 0 %>
+	<table>
+	<% for category in @categories %>
+		<tr>
+			<td><%= link_to category.name, :action => "edit_category", :id => category.id %></td>
+		</tr>
+	<% end %>
+	</table>
+<% else %>
+	<p>There are no categories currently available for you.</p>
+<% end %>
+
+<%= link_to "add", :action => 'add_category'%>
