@@ -19,17 +19,3 @@ set :password, "privilege"
 set :use_sudo, false
 set :port_number, "3020"
 
-namespace :deploy do
-	
-  task :start, :roles => :app do
-    run "cd #{deploy_to}/current; mongrel_rails start -e production -p #{port_number} -d"
-  end
-  task :stop, :roles => :app do
-    run "cd #{deploy_to}/current; mongrel_rails stop"
-  end
-  task :restart, :roles => :app do
-    run "cd #{deploy_to}/current; mongrel_rails stop; mongrel_rails start -e production -p #{port_number} -d"
-    run "echo \"WEBSITE HAS BEEN DEPLOYED\""
-  end
-
-end
