@@ -79,6 +79,10 @@ img{
 	text-align:center;
 }
 
+.float_fix{
+	clear:both;
+}
+
 #footer{
 	clear:both;
 	width:760px;

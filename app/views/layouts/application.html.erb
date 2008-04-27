@@ -42,14 +42,6 @@
 					<li><%= link_to_unless_current category.name, :action => 'view_category', :id => category.id %></li>
 				<% end %>
 				</ul>
-				<% if (controller.action_name == "view_category") && (@sections.size > 1)%>
-					<div id="sections">
-						<h2>Sections</h2>
-							<% for section in @sections %>
-								<a href="#<%= section.sub_cat %>"><%= section.sub_cat %></a><br />					
-							<% end %>	
-					</div>	
-				<% end %>
 			</td>
 			<td id="main">
 				<%= yield %>

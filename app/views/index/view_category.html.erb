@@ -4,8 +4,8 @@
 
 <div id="greeting">	
 	<% for section in @sections %>
-		<h3 id="<%= section.sub_cat %>"><%= section.sub_cat %></h3>
-			<% if @products.empty? %>
+		<h3 class="float_fix"><%= section.sub_cat %></h3>
+			<% if @products.nil? %>
 			<p>There are currently no products for sale.</p>
 			<% else %>
 			<% for product in @products%>
