@@ -1,0 +1,25 @@
+	
+	<div style="width:200px; padding:10px;float:right;">
+		<h2>
+			<%= @product.title %>
+			<% if @product.code.nil? %>
+		</h2>	
+			<% else %>
+			<br />
+			<span style="font-size:.5em;">Item # <%= @product.code %></span></h2>
+			<% end %>
+		<p><b><%= number_to_currency(@product.price )%></b></p>
+		<%if !@product.sizes.empty? %>
+		<p><b>Sizes:</b> <%= @product.sizes%></p>
+		<% end %>
+		<p><%= @product.description %></p>
+		
+		
+	</div>
+	
+	<div>
+		<% if @image.nil? %>
+		<% else %>
+		<%= image_tag("/index/view/" + @image.id.to_s + ".jpg", :alt => @product.title) %>
+		<% end %>
+	</div>
